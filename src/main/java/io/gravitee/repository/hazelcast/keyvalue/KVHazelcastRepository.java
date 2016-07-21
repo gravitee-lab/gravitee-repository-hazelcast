@@ -15,22 +15,19 @@
  */
 package io.gravitee.repository.hazelcast.keyvalue;
 
-import java.util.concurrent.TimeUnit;
-
+import com.hazelcast.core.HazelcastInstance;
+import com.hazelcast.core.IMap;
+import io.gravitee.repository.Scope;
+import io.gravitee.repository.exceptions.KeyValueException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.IMap;
-
-import io.gravitee.repository.Scope;
-import io.gravitee.repository.exceptions.KeyValueException;
+import java.util.concurrent.TimeUnit;
 
 @Component
 public class KVHazelcastRepository implements io.gravitee.repository.keyvalue.api.KeyValueRepository {
-	// private final static Logger logger = LoggerFactory.getLogger(HazelcastRepository.class);
 
 	@Autowired
 	@Qualifier("managementHazelcast")

@@ -117,9 +117,11 @@ public class HazelcastClientFactory implements FactoryBean<HazelcastInstance> {
 		if (configFile != null) {
 			String mode = readPropertyValue(propertyPrefix + "mode", String.class, "");
 			if ("client".equalsIgnoreCase(mode)) {
+				logger.info("Create an Hazelcast client instance from config: {}", configFile);
 				ClientConfig cfg = new XmlClientConfigBuilder(configFile).build();
 				return HazelcastClient.newHazelcastClient(cfg);
 			} else {
+				logger.info("Create an Hazelcast client node from config: {}", configFile);
 				Config cfg = new XmlConfigBuilder(configFile).build();
 				return Hazelcast.newHazelcastInstance(cfg);
 			}

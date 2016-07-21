@@ -15,15 +15,13 @@
  */
 package io.gravitee.repository.hazelcast.cache;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
-
 import com.hazelcast.core.HazelcastInstance;
-
 import io.gravitee.repository.cache.api.CacheManager;
 import io.gravitee.repository.cache.model.Cache;
 import io.gravitee.repository.exceptions.CacheException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 @Component
 public class CacheHazelcastRepository implements CacheManager {
@@ -37,7 +35,7 @@ public class CacheHazelcastRepository implements CacheManager {
 		try {
 			return new HazelcastCache(hazelcast.getMap(name));
 		} catch (RuntimeException e) {
-			throw new CacheException("Error on hazelcalst", e);
+			throw new CacheException("Unexpected error from Hazelcast", e);
 		}
 	}
 }

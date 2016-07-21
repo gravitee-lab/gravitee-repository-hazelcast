@@ -15,13 +15,12 @@
  */
 package io.gravitee.repository.hazelcast.cache;
 
-import java.util.concurrent.TimeUnit;
-
 import com.hazelcast.core.IMap;
-
 import io.gravitee.repository.cache.model.Cache;
 import io.gravitee.repository.cache.model.Element;
 import io.gravitee.repository.exceptions.CacheException;
+
+import java.util.concurrent.TimeUnit;
 
 public class HazelcastCache implements Cache {
 	private IMap<Object, Object> cache;
@@ -46,7 +45,7 @@ public class HazelcastCache implements Cache {
 			Object value = cache.get(key);
 			return value == null ? null : Element.from(key, value);
 		} catch (RuntimeException e) {
-			throw new CacheException("Error on hazelcalst", e);
+			throw new CacheException("Unexpected error from Hazelcast", e);
 		}
 	}
 
@@ -58,7 +57,7 @@ public class HazelcastCache implements Cache {
 			}
 			cache.put(element.key(), element.value(), element.timeToLive(), TimeUnit.SECONDS);
 		} catch (RuntimeException e) {
-			throw new CacheException("Error on hazelcalst", e);
+			throw new CacheException("Unexpected error from Hazelcast", e);
 		}
 	}
 
@@ -67,7 +66,7 @@ public class HazelcastCache implements Cache {
 		try {
 			cache.evict(key);
 		} catch (RuntimeException e) {
-			throw new CacheException("Error on hazelcalst", e);
+			throw new CacheException("Unexpected error from Hazelcast", e);
 		}
 	}
 
@@ -76,7 +75,7 @@ public class HazelcastCache implements Cache {
 		try {
 			cache.clear();
 		} catch (RuntimeException e) {
-			throw new CacheException("Error on hazelcalst", e);
+			throw new CacheException("Unexpected error from Hazelcast", e);
 		}
 	}
 

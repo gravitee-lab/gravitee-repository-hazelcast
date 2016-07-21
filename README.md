@@ -29,7 +29,7 @@ $ mvn clean package
 
 ## Installing
 
-Unzip the gravitee-repository-hazelcast-0.1.1-SNAPSHOT.zip in the gravitee home directory.
+Unzip the gravitee-repository-hazelcast-0.1.0-SNAPSHOT.zip in the gravitee home directory.
  
 
 
