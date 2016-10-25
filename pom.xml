@@ -28,11 +28,11 @@
 
 	<groupId>io.gravitee.repository</groupId>
 	<artifactId>gravitee-repository-hazelcast</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>Gravitee IO - API Management - Repository hazelcast</name>
 
 	<properties>
-		<gravitee-repository.version>1.0.0-SNAPSHOT</gravitee-repository.version>
+		<gravitee-repository.version>1.0.0</gravitee-repository.version>
 		<!-- When upgrading to 3.7+ please remove the hack in HazelcastRepository to redirect logs to slf4j -->
 		<hazelcast.version>3.6.4</hazelcast.version>
 	</properties>
